@@ -1,6 +1,6 @@
-<?php
-$conn = mysqli_connect("localhost", "root", "", "modul3");
+    <?php
+    $conn = mysqli_connect();
 
-if (!$conn) {
-    echo "Gagal Konek";
-}
+    if (!$conn) {
+        echo "Gagal Konek";
+    }
