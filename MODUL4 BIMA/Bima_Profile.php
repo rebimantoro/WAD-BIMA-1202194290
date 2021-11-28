@@ -101,13 +101,13 @@
             $update = mysqli_query($conn, $update_query);
             echo "<div class='alert alert-success alert-dismissible fade show fade in' role='alert'>";
             echo 'Update Profile Berhasil';
-            echo "<button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'>";
+            echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
             echo '</button>';
             echo '</div>';
         } else {
             echo "<div class='alert alert-warning alert-dismissible fade show fade in' role='alert'>";
             echo 'Konfirmasi Kata Sandi tidak cocok,coba lagi';
-            echo "<button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'>";
+            echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
             echo '</button>';
             echo '</div>';
         }

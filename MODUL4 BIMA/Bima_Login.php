@@ -61,7 +61,7 @@
     <?php if (isset($_SESSION['message'])) : ?>
         <div class='alert alert-warning alert-dismissible fade show fade in' role='alert'>
             <?= $_SESSION['message']; ?>
-            <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </button>
         </div>
 
@@ -73,7 +73,7 @@
     <?php if (isset($_SESSION['registered'])) : ?>
         <div class='alert alert-success alert-dismissible fade show fade in' role='alert'>
             <?= $_SESSION['registered']; ?>
-            <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </button>
         </div>
     <?php

@@ -91,7 +91,7 @@
         $delete = mysqli_query($conn, $delete_query);
         echo "<div class='alert alert-success alert-dismissible fade show fade in' role='alert'>";
         echo 'Hapus Booking Berhasil';
-        echo "<button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'>";
+        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
         echo '</button>';
         echo '</div>';
     } ?>

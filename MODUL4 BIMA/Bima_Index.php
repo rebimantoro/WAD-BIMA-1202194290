@@ -49,6 +49,73 @@
                 </div>
             </div>
         </nav>
+        <br><br>
+        <div class="container" style="background-color:#96C5A5">
+            <br><br>
+            <h1 align="center">EAD Travel</h1>
+            <br><br>
+        </div>
+        <br>
+
+
+        <div class="container" style="background-color:white">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card" style="width: 26rem;">
+                        <img src="asset/raja-ampat.jpg" class="card-img-top" alt="asset/raja-ampat.jpeg">
+                        <div class="card-body">
+                            <h5 class="card-title">Raja Ampat</h5>
+                            <p class="card-text">Kepulauan Raja Ampat adalah kepulauan Indonesia di ujung barat laut Semenanjung Kepala Burung di Papua Barat. Terdiri dari ratusan pulau yang tertutup hutan, Raja Ampat dikenal dengan pantai dan terumbu karangnya yang kaya dengan kehidupan laut. Lukisan batu dan gua kuno berada di Pulau Misool, sedangkan cendrawasih merah hidup di Pulau Waigeo.</p>
+                            <hr>
+                            <b>
+                                <p>Rp.7.000.000</p>
+                            </b>
+                            <a href="Bima_Login.php">
+                                <button type="button" class="btn btn-primary">
+                                    Pesan Tiket
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card" style="width: 26rem;">
+                        <img src="asset/gunung-bromo.jpg" class="card-img-top" alt="asset/raja-ampat.jpeg">
+                        <div class="card-body">
+                            <h5 class="card-title">Gunung Bromo, Malang</h5>
+                            <p class="card-text">Gunung Bromo adalah gunung berapi somma aktif dan bagian dari pegunungan Tengger, di Jawa Timur, Indonesia. Pada 2.329 meter itu bukan puncak tertinggi dari massif, tetapi yang paling terkenal. Kawasan tersebut merupakan salah satu destinasi wisata di Jawa Timur yang paling banyak dikunjungi, dan gunung berapi ini termasuk dalam Taman Nasional Bromo Tengger Semeru.</p>
+                            <hr>
+                            <b>
+                                <p>Rp.2.000.000</p>
+                            </b>
+                            <a href="Bima_Login.php">
+                                <button type="button" class="btn btn-primary">
+                                    Pesan Tiket
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-4">
+                    <div class="card" style="width: 26rem;">
+                        <img src="asset/tanah-lot.jpg" class="card-img-top" alt="asset/raja-ampat.jpeg">
+                        <div class="card-body">
+                            <h5 class="card-title">Tanah Lot, Bali</h5>
+                            <p class="card-text">Tanah Lot salah satu pura penting bagi umat Hindu Bali dan lokasi pura terletak di atas batu besar yang berada di lepas pantai. Pura Tanah Lot merupakan ikon pariwisata pulau Bali. Selain itu salah satu obyek wisata terkenal di pulau Bali yang wajib di kunjungi. Karena saking terkenalnya tempat wisata di Bali ini, maka hampir setiap hari, objek wisata ini selalu ramai dengan kunjungan wisatawan.</p>
+                            <hr>
+                            <b>
+                                <p>Rp.5.000.000</p>
+                            </b>
+                            <a href="Bima_Login.php">
+                                <button type="button" class="btn btn-primary">
+                                    Pesan Tiket
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <?php else : ?>
         <?php
         $id = $_SESSION['id'];
@@ -96,104 +163,109 @@
                 </div>
             </div>
         </nav>
-    <?php
-    endif;
-    ?>
+        <?php
+        if (isset($_POST['tambah'])) {
+            $user_id = $_SESSION['id'];
+            $nama_tempat = $_POST['tambah'];
+            $lokasi = $_POST['lokasi'];
+            $harga = $_POST['harga'];
+            $tanggal = $_POST['tanggal'];
+            $query = "INSERT INTO bookings (user_id,nama_tempat,lokasi,harga,tanggal) VALUES('$user_id','$nama_tempat','$lokasi','$harga','$tanggal')";
+            $insert = mysqli_query($conn, $query);
+            echo "<div class='alert alert-success alert-dismissible fade show fade in' role='alert'>";
+            echo 'Booking Berhasil';
+            echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+            echo '</button>';
+            echo '</div>';
+        }
 
-    <?php
-    if (isset($_POST['logout'])) {
-        session_destroy();
-        header('location:Bima_Login.php');
-    }
-    ?>
-    <?php if (isset($_SESSION['message'])) : ?>
-        <div class='alert alert-success alert-dismissible fade show fade in' role='alert'>
-            <?= $_SESSION['message']; ?>
-            <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'>
-            </button>
+        ?>
+        <?php
+        if (isset($_POST['logout'])) {
+            session_destroy();
+            header('location:Bima_Login.php');
+        }
+        ?>
+        <?php if (isset($_SESSION['message'])) : ?>
+            <div class='alert alert-success alert-dismissible fade show fade in' role='alert'>
+                <?= $_SESSION['message']; ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </button>
+            </div>
+        <?php
+            unset($_SESSION['message']);
+        endif;
+        ?>
+        <br><br>
+        <div class="container" style="background-color:#96C5A5">
+            <br><br>
+            <h1 align="center">EAD Travel</h1>
+            <br><br>
         </div>
-    <?php
-        unset($_SESSION['message']);
-    endif;
-    ?>
+        <br>
 
-    <?php
-    if (isset($_POST['tambah'])) {
-        $user_id = $_SESSION['id'];
-        $nama_tempat = $_POST['tambah'];
-        $lokasi = $_POST['lokasi'];
-        $harga = $_POST['harga'];
-        $tanggal = $_POST['tanggal'];
-        $query = "INSERT INTO bookings (user_id,nama_tempat,lokasi,harga,tanggal) VALUES('$user_id','$nama_tempat','$lokasi','$harga','$tanggal')";
-        $insert = mysqli_query($conn, $query);
-        echo "<div class='alert alert-success alert-dismissible fade show fade in' role='alert'>";
-        echo 'Booking Berhasil';
-        echo "<button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'>";
-        echo '</button>';
-        echo '</div>';
-    }
-    ?>
 
-    <br><br>
-    <div class="container" style="background-color:#96C5A5">
-        <br><br>
-        <h1 align="center">EAD Travel</h1>
-        <br><br>
-    </div>
-    <br>
-
-    <div class="container" style="background-color:white">
-        <div class="row">
-            <div class="col-4">
-                <div class="card" style="width: 26rem;">
-                    <img src="asset/raja-ampat.jpg" class="card-img-top" alt="asset/raja-ampat.jpeg">
-                    <div class="card-body">
-                        <h5 class="card-title">Raja Ampat</h5>
-                        <p class="card-text">Kepulauan Raja Ampat adalah kepulauan Indonesia di ujung barat laut Semenanjung Kepala Burung di Papua Barat. Terdiri dari ratusan pulau yang tertutup hutan, Raja Ampat dikenal dengan pantai dan terumbu karangnya yang kaya dengan kehidupan laut. Lukisan batu dan gua kuno berada di Pulau Misool, sedangkan cendrawasih merah hidup di Pulau Waigeo.</p>
-                        <hr>
-                        <b>
-                            <p>Rp.7.000.000</p>
-                        </b>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#raja-ampat" style="width:380px">
-                            Pesan Tiket
-                        </button>
+        <div class="container" style="background-color:white">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card" style="width: 26rem;">
+                        <img src="asset/raja-ampat.jpg" class="card-img-top" alt="asset/raja-ampat.jpeg">
+                        <div class="card-body">
+                            <h5 class="card-title">Raja Ampat</h5>
+                            <p class="card-text">Kepulauan Raja Ampat adalah kepulauan Indonesia di ujung barat laut Semenanjung Kepala Burung di Papua Barat. Terdiri dari ratusan pulau yang tertutup hutan, Raja Ampat dikenal dengan pantai dan terumbu karangnya yang kaya dengan kehidupan laut. Lukisan batu dan gua kuno berada di Pulau Misool, sedangkan cendrawasih merah hidup di Pulau Waigeo.</p>
+                            <hr>
+                            <b>
+                                <p>Rp.7.000.000</p>
+                            </b>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#raja-ampat" style="width:380px">
+                                Pesan Tiket
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="card" style="width: 26rem;">
-                    <img src="asset/gunung-bromo.jpg" class="card-img-top" alt="asset/raja-ampat.jpeg">
-                    <div class="card-body">
-                        <h5 class="card-title">Gunung Bromo, Malang</h5>
-                        <p class="card-text">Gunung Bromo adalah gunung berapi somma aktif dan bagian dari pegunungan Tengger, di Jawa Timur, Indonesia. Pada 2.329 meter itu bukan puncak tertinggi dari massif, tetapi yang paling terkenal. Kawasan tersebut merupakan salah satu destinasi wisata di Jawa Timur yang paling banyak dikunjungi, dan gunung berapi ini termasuk dalam Taman Nasional Bromo Tengger Semeru.</p>
-                        <hr>
-                        <b>
-                            <p>Rp.2.000.000</p>
-                        </b>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bromo" style="width:380px">
-                            Pesan Tiket
-                        </button>
+                <div class="col-4">
+                    <div class="card" style="width: 26rem;">
+                        <img src="asset/gunung-bromo.jpg" class="card-img-top" alt="asset/raja-ampat.jpeg">
+                        <div class="card-body">
+                            <h5 class="card-title">Gunung Bromo, Malang</h5>
+                            <p class="card-text">Gunung Bromo adalah gunung berapi somma aktif dan bagian dari pegunungan Tengger, di Jawa Timur, Indonesia. Pada 2.329 meter itu bukan puncak tertinggi dari massif, tetapi yang paling terkenal. Kawasan tersebut merupakan salah satu destinasi wisata di Jawa Timur yang paling banyak dikunjungi, dan gunung berapi ini termasuk dalam Taman Nasional Bromo Tengger Semeru.</p>
+                            <hr>
+                            <b>
+                                <p>Rp.2.000.000</p>
+                            </b>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bromo" style="width:380px">
+                                Pesan Tiket
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class=" col-4">
-                <div class="card" style="width: 26rem;">
-                    <img src="asset/tanah-lot.jpg" class="card-img-top" alt="asset/raja-ampat.jpeg">
-                    <div class="card-body">
-                        <h5 class="card-title">Tanah Lot, Bali</h5>
-                        <p class="card-text">Tanah Lot salah satu pura penting bagi umat Hindu Bali dan lokasi pura terletak di atas batu besar yang berada di lepas pantai. Pura Tanah Lot merupakan ikon pariwisata pulau Bali. Selain itu salah satu obyek wisata terkenal di pulau Bali yang wajib di kunjungi. Karena saking terkenalnya tempat wisata di Bali ini, maka hampir setiap hari, objek wisata ini selalu ramai dengan kunjungan wisatawan.</p>
-                        <hr>
-                        <b>
-                            <p>Rp.5.000.000</p>
-                        </b>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tanah-lot" style="width:380px">
-                            Pesan Tiket
-                        </button>
+                <div class=" col-4">
+                    <div class="card" style="width: 26rem;">
+                        <img src="asset/tanah-lot.jpg" class="card-img-top" alt="asset/raja-ampat.jpeg">
+                        <div class="card-body">
+                            <h5 class="card-title">Tanah Lot, Bali</h5>
+                            <p class="card-text">Tanah Lot salah satu pura penting bagi umat Hindu Bali dan lokasi pura terletak di atas batu besar yang berada di lepas pantai. Pura Tanah Lot merupakan ikon pariwisata pulau Bali. Selain itu salah satu obyek wisata terkenal di pulau Bali yang wajib di kunjungi. Karena saking terkenalnya tempat wisata di Bali ini, maka hampir setiap hari, objek wisata ini selalu ramai dengan kunjungan wisatawan.</p>
+                            <hr>
+                            <b>
+                                <p>Rp.5.000.000</p>
+                            </b>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tanah-lot" style="width:380px">
+                                Pesan Tiket
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php
+    endif;
+    ?>
+
+
+
+
+
+
 
     <!-- Modal untuk Raja Ampat-->
     <div class="modal fade" id="raja-ampat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

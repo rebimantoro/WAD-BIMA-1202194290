@@ -53,7 +53,7 @@
         } else {
             echo "<div class='alert alert-warning alert-dismissible fade show fade in' role='alert'>";
             echo 'Konfirmasi Kata Sandi tidak cocok,coba lagi';
-            echo "<button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'>";
+            echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
             echo '</button>';
             echo '</div>';
         }
@@ -65,7 +65,7 @@
     <?php if (isset($_SESSION['message'])) : ?>
         <div class='alert alert-warning alert-dismissible fade show fade in' role='alert'>
             <?= $_SESSION['message']; ?>
-            <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </button>
         </div>
 
