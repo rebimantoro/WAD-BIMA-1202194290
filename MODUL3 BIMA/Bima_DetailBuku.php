@@ -178,43 +178,56 @@
                             <b><label for="deskripsi">Deskripsi</label></b> <br>
                             <textarea class=" form-control mt-1 mb-2" name="deskripsi" id="deskripsi" placeholder="<?= $row['deskripsi'] ?>" value="<?= $row['deskripsi'] ?>" style="height:100px" required></textarea>
                             <b><label for="bahasa">Bahasa</label></b> &nbsp;
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="bahasa" id="Indonesia" value="Indonesia" required>
-                                <label class="form-check-label" for="Indonesia">Indonesia</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="bahasa" id="Lainya" value="Lainya" required>
-                                <label class="form-check-label" for="Lainya">Lainya</label>
-                            </div> <br>
+                            <?php
+                            if ($row['bahasa'] == "Indonesia") {
+                                echo '<div class="form-check form-check-inline">';
+                                echo '<input class="form-check-input" type="radio" name="bahasa" id="Indonesia;" value="Indonesia" required checked="checked">';
+                                echo '<label class="form-check-label" for="Indonesia">Indonesia</label>';
+                                echo '<div class="form-check form-check-inline"> ';
+                                echo '<input class="form-check-input" type="radio" name="bahasa" id="Lainya" value="Lainya" required>';
+                                echo '<label class="form-check-label" for="Lainya">Lainya</label>';
+                                echo '</div> <br>';
+                                echo '</div> <br>';
+                            } else {
+                                echo '<div class="form-check form-check-inline">';
+                                echo '<input class="form-check-input" type="radio" name="bahasa" id="Indonesia;" value="Indonesia" required >';
+                                echo '<label class="form-check-label" for="Indonesia">Indonesia</label>';
+                                echo '<div class="form-check form-check-inline">';
+                                echo '<input class="form-check-input" type="radio" name="bahasa" id="Lainya" value="Lainya" checked="checked" required>';
+                                echo '<label class="form-check-label" for="Lainya">Lainya</label>';
+                                echo '</div> <br>';
+                                echo '</div> <br>';
+                            }
+                            ?>
                             <b><label for="tag" class="mt-2">Tag</label></b> &nbsp;
-                            <div class="form-check form-check-inline ">
-                                <input class="form-check-input" type="checkbox" name="tag[]" id="Pemrograman" value="Pemrograman">
-                                <label class="form-check-label" for="Pemrograman">Pemrograman</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="tag[]" id="Website" value="Website">
-                                <label class="form-check-label" for="Website">Website</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="tag[]" id="Java" value="Java">
-                                <label class="form-check-label" for="Java">Java</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="tag[]" id="OOP" value="OOP">
-                                <label class="form-check-label" for="OOP">OOP</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="tag[]" id="MVC" value="MVC">
-                                <label class="form-check-label" for="MVC">MVC</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="tag[]" id="Kalkulus" value="Kalkulus">
-                                <label class="form-check-label" for="Kalkulus">Kalkulus</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="tag[]" id="Lainya" value="Lainya">
-                                <label class="form-check-label" for="Lainya">Lainya</label>
-                            </div>
+                            <?php
+                            $array1 = explode(",", $row['tag']);
+                            $array2 = array("Pemrograman", "Website", "Java", "OOP", "MVC", "Kalkulus", "Lainya");
+                            $number = 0;
+                            echo '<br>';
+                            $sama = 1;
+                            foreach ($array2 as $key) {
+                                foreach ($array1 as $cek) {
+                                    if ($key == $cek) {
+                                        $sama = 1;
+                                        echo '<div class="form-check form-check-inline ">';
+                                        echo '<input class="form-check-input" type="checkbox" name="tag[]" id="' . $key . '" value="' . $key . '" checked="checked" />';
+                                        echo '<label class="form-check-label" for="' . $key . '">' . $key . '</label>';
+                                        echo '</div>';
+                                        break;
+                                    } else {
+                                        $sama = 0;
+                                    }
+                                }
+                                if ($sama == 1) {
+                                    continue;
+                                }
+                                echo '<div class="form-check form-check-inline ">';
+                                echo '<input class="form-check-input" type="checkbox" name="tag[]" id="' . $key . '" value="' . $key . '">';
+                                echo '<label class="form-check-label" for="' . $key . '">' . $key . '</label>';
+                                echo '</div>';
+                            }
+                            ?>
                             <br>
                             <b><label for="gambar" class="mt-2">Gambar</label></b> <br>
                             <div class="mb-3 mt-2">
