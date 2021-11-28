@@ -158,90 +158,6 @@
                 <div class="col-1"></div>
             </div>
 
-<<<<<<< HEAD
-        <div class="modal fade bd-example-modal-lg" id="sunting" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content ">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sunting</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" method="post" enctype="multipart/form-data">
-                            <b><label for="judul_buku">Judul Buku</label></b> <br>
-                            <input class="form-control mt-1 mb-2" type="text" name="judul_buku" id="judul_buku" placeholder="<?= $row['judul_buku'] ?>" value="<?= $row['judul_buku'] ?>" required>
-                            <b><label for="penulis_buku">Penulis</label></b> <br>
-                            <input class="form-control mt-1 mb-2" type="text" name="penulis_buku" id="penulis_buku" readonly="readonly" value="Bima_1202194290" required>
-                            <b><label for="tahun_terbit">Tahun Terbit</label></b> <br>
-                            <input class="form-control mt-1 mb-2" type="number" name="tahun_terbit" id="tahun_terbit" placeholder="<?= $row['tahun_terbit'] ?>" value="<?= $row['tahun_terbit'] ?>">
-                            <b><label for="deskripsi">Deskripsi</label></b> <br>
-                            <textarea class=" form-control mt-1 mb-2" name="deskripsi" id="deskripsi" placeholder="<?= $row['deskripsi'] ?>" value="<?= $row['deskripsi'] ?>" style="height:100px" required></textarea>
-                            <b><label for="bahasa">Bahasa</label></b> &nbsp;
-                            <?php
-                            if ($row['bahasa'] == "Indonesia") {
-                                echo '<div class="form-check form-check-inline">';
-                                echo '<input class="form-check-input" type="radio" name="bahasa" id="Indonesia;" value="Indonesia" required checked="checked">';
-                                echo '<label class="form-check-label" for="Indonesia">Indonesia</label>';
-                                echo '<div class="form-check form-check-inline"> ';
-                                echo '<input class="form-check-input" type="radio" name="bahasa" id="Lainya" value="Lainya" required>';
-                                echo '<label class="form-check-label" for="Lainya">Lainya</label>';
-                                echo '</div> <br>';
-                                echo '</div> <br>';
-                            } else {
-                                echo '<div class="form-check form-check-inline">';
-                                echo '<input class="form-check-input" type="radio" name="bahasa" id="Indonesia;" value="Indonesia" required >';
-                                echo '<label class="form-check-label" for="Indonesia">Indonesia</label>';
-                                echo '<div class="form-check form-check-inline">';
-                                echo '<input class="form-check-input" type="radio" name="bahasa" id="Lainya" value="Lainya" checked="checked" required>';
-                                echo '<label class="form-check-label" for="Lainya">Lainya</label>';
-                                echo '</div> <br>';
-                                echo '</div> <br>';
-                            }
-                            ?>
-                            <b><label for="tag" class="mt-2">Tag</label></b> &nbsp;
-                            <?php
-                            $array1 = explode(",", $row['tag']);
-                            $array2 = array("Pemrograman", "Website", "Java", "OOP", "MVC", "Kalkulus", "Lainya");
-                            $number = 0;
-                            echo '<br>';
-                            $sama = 1;
-                            foreach ($array2 as $key) {
-                                foreach ($array1 as $cek) {
-                                    if ($key == $cek) {
-                                        $sama = 1;
-                                        echo '<div class="form-check form-check-inline ">';
-                                        echo '<input class="form-check-input" type="checkbox" name="tag[]" id="' . $key . '" value="' . $key . '" checked="checked" />';
-                                        echo '<label class="form-check-label" for="' . $key . '">' . $key . '</label>';
-                                        echo '</div>';
-                                        break;
-                                    } else {
-                                        $sama = 0;
-                                    }
-                                }
-                                if ($sama == 1) {
-                                    continue;
-                                }
-                                echo '<div class="form-check form-check-inline ">';
-                                echo '<input class="form-check-input" type="checkbox" name="tag[]" id="' . $key . '" value="' . $key . '">';
-                                echo '<label class="form-check-label" for="' . $key . '">' . $key . '</label>';
-                                echo '</div>';
-                            }
-                            ?>
-                            <br>
-                            <b><label for="gambar" class="mt-2">Gambar</label></b> <br>
-                            <div class="mb-3 mt-2">
-                                <input class="form-control" type="file" name="file" id="gambar" required>
-                            </div>
-                            <br>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                <button type="submit" name="sunting" value="<?= $row['id_buku'] ?>" class="btn btn-primary">Simpan Perubahan</button>
-                            </div>
-                        </form>
-                    </div>
-=======
             <div class="modal fade bd-example-modal-lg" id="sunting" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content ">
@@ -311,7 +227,6 @@
                                 </div>
                             </form>
                         </div>
->>>>>>> b41c044cccf299308e901c37e937b9dd7c6b9ecc
 
                     </div>
                 </div>
