@@ -50,7 +50,7 @@ function login($request)
     if (mysqli_num_rows($select) == 1) {
         $result = mysqli_fetch_array($select);
 
-        if (password_verify($password, $result['password'])) {
+        if (($password, $result['password'])) {
             $_SESSION['id'] = $result['id'];
             $_SESSION['nama'] = $result['nama'];
             $_SESSION['email'] = $result['email'];

@@ -19,9 +19,9 @@
     require 'Bima_Controller.php';
     if (isset($_POST['login'])) {
         if (isset($_POST['ingat'])) {
-            setcookie('ingat', $_POST['ingat'], time() + 3600);
-            setcookie('email', $_POST['email'], time() + 3600);
-            setcookie('password', $_POST['password'], time() + 3600);
+            ('ingat', $_POST['ingat'], time() + 3600);
+            ('email', $_POST['email'], time() + 3600);
+            ('password', $_POST['password'], time() + 3600);
         }
         login($_POST);
     }
