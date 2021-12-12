@@ -24,7 +24,7 @@ Bima_Patient
         <br>
         <h3 align="center" class="text-dark">List Patient</h3>
         <br>
-        <a  href="#" class="btn btn-primary mb-3 "> Add Patient</a>
+        <a  href="/Bima_Patient/Vaccine" class="btn btn-primary mb-3 "> Add Patient</a>
         <table class="table table-primary table-striped">
             <tr>
                 <th>No</th>
