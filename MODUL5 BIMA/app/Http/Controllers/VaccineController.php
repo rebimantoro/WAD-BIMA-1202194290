@@ -28,7 +28,7 @@ class VaccineController extends Controller
 
     public function index()
     {
-        $Vaccine = Vaccine::all();
+        $Vaccine = Vaccine::();
         return view('Vaccines.Bima_Vaccine_Index', compact('Vaccine'));
     }
 

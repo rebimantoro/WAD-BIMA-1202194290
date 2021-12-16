@@ -17,7 +17,6 @@ Bima_Vaccine
     <br><br>
     <h3 align="center">Edit Vaccine</h3>
     <form action="{{ route('Bima_Vaccine.Update',$Vaccine->id) }}" method="post" enctype="multipart/form-data">
-        @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Vaccine Name</label>
             <input type="text" class="form-control" id="name" name="name" value="{{ $Vaccine->name }}" required>
